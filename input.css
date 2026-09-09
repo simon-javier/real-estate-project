@@ -30,4 +30,8 @@
     font-family: "Cinzel", serif;
     font-weight: 400;
   }
+
+  [x-cloak] {
+    display: none !important;
+  }
 }

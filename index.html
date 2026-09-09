@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Marci Metzger Homes - Real Estate Agent, Real Estate, Realtor</title>
     <link rel="stylesheet" href="./output.css" />
     <link
       rel="stylesheet"
@@ -14,10 +14,11 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.2/dist/cdn.min.js"
     ></script>
   </head>
-  <body class="bg-brand-dark text-white">
+  <body class="bg-brand-dark text-white" x-data="{ sidebarOpen: false }">
     <header class="absolute w-full top-0 left-0">
       <nav class="max-w-300 mx-auto flex items-center py-3 px-4">
         <button
+          @click="sidebarOpen = true"
           class="flex items-center gap-2.5 cursor-pointer w-6 md:w-auto text-brand-dark text-2xl"
         >
           <svg
@@ -38,10 +39,12 @@
           <p class="font-serif hidden md:block">Menu</p>
         </button>
         <img src="./img/logo.webp" class="w-50 md:w-85 mx-auto" alt="" />
-        <a href="#contacts" class="md:flex items-center gap-0.5 hidden">
-          <p class="py-2 px-4 rounded-lg bg-brand-dark">Contact Us</p>
+        <a href="#contacts" class="md:flex items-center gap-0.5 hidden group">
+          <p class="py-2 px-4 rounded-lg font-serif bg-brand-dark">
+            Contact Us
+          </p>
           <p
-            class="h-10 flex justify-center items-center rounded-lg bg-brand-dark"
+            class="h-10 flex justify-center items-center rounded-lg bg-brand-dark group-hover:translate-x-2 transition-transform duration-300 ease-in-out"
           >
             <svg
               width="28"
@@ -62,6 +65,83 @@
         </a>
       </nav>
     </header>
+    <aside class="fixed inset-0 z-50 flex" x-show="sidebarOpen" x-cloak>
+      <div
+        class="fixed inset-0 bg-black/60 transition-opacity"
+        x-show="sidebarOpen"
+        x-transition:enter="transition-opacity ease-linear duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition-opacity ease-linear duration-300"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        @click="sidebarOpen = false"
+      ></div>
+
+      <div
+        class="relative flex w-full max-w-xs flex-1 flex-col bg-brand-light text-brand-dark pb-4 pt-5 shadow-xl h-full"
+        x-show="sidebarOpen"
+        x-transition:enter="transition ease-in-out duration-300 transform"
+        x-transition:enter-start="-translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition ease-in-out duration-300 transform"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="-translate-x-full"
+      >
+        <div class="absolute right-15 top-0 -mr-12 pt-4 pr-2 sm:-mr-14 sm:pr-4">
+          <button
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-full hover:text-brand-primary focus:outline-none"
+            @click="sidebarOpen = false"
+          >
+            <span class="sr-only">Close sidebar</span>
+            <svg
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="mt-8 h-0 flex-1 overflow-y-auto">
+          <nav class="space-y-2 px-4 font-serif text-lg">
+            <a
+              href="#"
+              @click="sidebarOpen = false"
+              class="block rounded-md px-3 py-2 font-bold text-brand-primary transition-colors"
+              >Home</a
+            >
+            <a
+              href="#listings"
+              @click="sidebarOpen = false"
+              class="block rounded-md px-3 py-2 font-medium hover:text-brand-primary transition-colors"
+            >
+              Listings
+            </a>
+            <a
+              href="#"
+              @click="sidebarOpen = false"
+              class="block rounded-md px-3 py-2 font-medium hover:text-brand-primary transition-colors"
+              >Let's Move</a
+            >
+            <a
+              href="#"
+              @click="sidebarOpen = false"
+              class="block rounded-md px-3 py-2 font-medium hover:text-brand-primary transition-colors"
+              >About Us</a
+            >
+          </nav>
+        </div>
+      </div>
+    </aside>
     <main class="flex-1 flex flex-col">
       <!-- Hero Section -->
       <section
@@ -522,7 +602,287 @@
         </div>
       </section>
       <!-- Services Section -->
+      <section class="bg-brand-light py-13">
+        <div class="max-w-300 mx-auto px-4">
+          <div class="text-center text-brand-dark">
+            <h3 class="text-sm md:text-base text-brand-primary">
+              Our Services
+            </h3>
+            <h2 class="text-2xl md:text-3xl">Complete Real Estate Solutions</h2>
+            <p class="text-pretty max-w-150 mx-auto">
+              Comprehensive, attentive guidance whether you are buying your
+              first home or selling an expansive estate.
+            </p>
+          </div>
+          <div class="grid mt-10 gap-8 md:grid-cols-3">
+            <div
+              class="flex flex-col gap-2 items-center text-brand-dark text-center"
+            >
+              <img src="./img/services-1.webp" alt="" />
+              <div>
+                <h4 class="text-brand-primary text-lg md:text-2xl">
+                  Real Estate Done Right
+                </h4>
+                <p>
+                  Nervous about your property adventure? Don’t be. Whether
+                  you're getting ready to buy or sell your residence, looking at
+                  investment properties, or just curious about the markets, our
+                  team ensures you get the best experience possible!
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col gap-2 items-center text-brand-dark text-center"
+            >
+              <img src="./img/services-2.webp" alt="" />
+              <div>
+                <h4 class="text-brand-primary text-lg md:text-2xl">
+                  Commercial & Residential
+                </h4>
+                <p>
+                  Large or small, condo or mansion, we can find it and get at
+                  the price that's right. Fixer-uppers? Luxury? We can help with
+                  all of it! We live, work, and play in this community. Happy to
+                  help you find where to put you hard-earned dollars.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col gap-2 items-center text-brand-dark text-center"
+            >
+              <img src="./img/services-3.webp" alt="" />
+              <div>
+                <h4 class="text-brand-primary text-lg md:text-2xl">
+                  Rely on Expertise
+                </h4>
+                <p>
+                  If you have questions about affordability, credit, and loan
+                  options, trust us to connect you with the right people to get
+                  the answers you need in a timely fashion. We make sure you
+                  feel confident and educated every step of the way.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Socials Sections -->
+      <section class="bg-brand-dark py-13 px-4">
+        <div class="flex items-center justify-center gap-6 max-w-300 mx-auto">
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="40px"
+            height="40px"
+            data-ux="IconSocial"
+            class="x-el x-el-svg c1-1 c1-2 c1-gv c1-1v c1-2h c1-1x c1-1y c1-1z c1-20 c1-21 c1-22 c1-b c1-c c1-d c1-e c1-f c1-g"
+          >
+            <path
+              d="M20 12.047C20 7.603 16.418 4 12 4s-8 3.603-8 8.047c0 4.017 2.925 7.346 6.75 7.95v-5.624H8.719v-2.326h2.031v-1.773c0-2.017 1.194-3.13 3.022-3.13.875 0 1.79.157 1.79.157v1.98h-1.008c-.994 0-1.304.62-1.304 1.257v1.51h2.219l-.355 2.325H13.25v5.624c3.825-.604 6.75-3.933 6.75-7.95z"
+            ></path>
+          </svg>
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="40px"
+            height="40px"
+            data-ux="IconSocial"
+            class="x-el x-el-svg c1-1 c1-2 c1-gv c1-1v c1-2h c1-1x c1-1y c1-1z c1-20 c1-21 c1-22 c1-b c1-c c1-d c1-e c1-f c1-g"
+          >
+            <path
+              d="M14.667 12a2.57 2.57 0 0 0-.782-1.885A2.57 2.57 0 0 0 12 9.333a2.57 2.57 0 0 0-1.885.782A2.57 2.57 0 0 0 9.333 12c0 .736.26 1.365.782 1.885.52.521 1.149.782 1.885.782a2.57 2.57 0 0 0 1.885-.782c.521-.52.782-1.149.782-1.885zm1.437 0c0 1.139-.4 2.108-1.198 2.906-.798.799-1.767 1.198-2.906 1.198-1.139 0-2.108-.4-2.906-1.198-.799-.798-1.198-1.767-1.198-2.906 0-1.139.4-2.108 1.198-2.906.798-.799 1.767-1.198 2.906-1.198 1.139 0 2.108.4 2.906 1.198.799.798 1.198 1.767 1.198 2.906zm1.125-4.27c0 .263-.094.489-.281.676a.923.923 0 0 1-.677.282.923.923 0 0 1-.677-.282.923.923 0 0 1-.281-.677c0-.264.093-.49.28-.677a.923.923 0 0 1 .678-.281c.264 0 .49.094.677.281a.923.923 0 0 1 .281.677zM12 5.437l-.797-.006a56.514 56.514 0 0 0-1.099 0c-.25.004-.585.014-1.005.032-.42.017-.778.052-1.073.104a4.177 4.177 0 0 0-.745.192c-.347.14-.653.34-.916.605-.264.263-.466.569-.605.916-.076.202-.14.45-.192.745a8.255 8.255 0 0 0-.104 1.073c-.018.42-.028.755-.032 1.005-.003.25-.003.616 0 1.1l.006.796-.006.797c-.003.483-.003.849 0 1.099.004.25.014.585.032 1.005.017.42.052.778.104 1.073.052.295.116.543.192.745.14.347.34.653.605.916.263.264.569.466.916.605.202.076.45.14.745.192.295.052.653.087 1.073.104.42.018.755.028 1.005.032.25.003.616.003 1.1 0l.796-.005.797.005c.483.003.849.003 1.099 0 .25-.004.585-.014 1.005-.032.42-.017.778-.052 1.073-.104.295-.052.543-.116.745-.192.347-.14.653-.34.916-.605.264-.263.466-.569.605-.916.076-.202.14-.45.192-.745.052-.295.087-.653.104-1.073.018-.42.028-.755.032-1.005.003-.25.003-.616 0-1.1L18.562 12l.006-.797c.003-.483.003-.849 0-1.099a38.59 38.59 0 0 0-.032-1.005 8.255 8.255 0 0 0-.104-1.073 4.177 4.177 0 0 0-.192-.745 2.703 2.703 0 0 0-.605-.916 2.703 2.703 0 0 0-.916-.605 4.177 4.177 0 0 0-.745-.192 8.255 8.255 0 0 0-1.073-.104c-.42-.018-.755-.028-1.005-.032-.25-.003-.616-.003-1.1 0L12 5.438zM20 12c0 1.59-.017 2.691-.052 3.302-.07 1.445-.5 2.563-1.292 3.354-.791.792-1.91 1.222-3.354 1.292-.611.035-1.712.052-3.302.052s-2.691-.017-3.302-.052c-1.445-.07-2.563-.5-3.354-1.292-.792-.791-1.222-1.91-1.292-3.354C4.017 14.691 4 13.59 4 12s.017-2.691.052-3.302c.07-1.445.5-2.563 1.292-3.354.791-.792 1.91-1.222 3.354-1.292C9.309 4.017 10.41 4 12 4s2.691.017 3.302.052c1.445.07 2.563.5 3.354 1.292.792.791 1.222 1.91 1.292 3.354.035.611.052 1.712.052 3.302z"
+            ></path>
+          </svg>
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="40px"
+            height="40px"
+            data-ux="IconSocial"
+            class="x-el x-el-svg c1-1 c1-2 c1-gv c1-1v c1-2h c1-1x c1-1y c1-1z c1-20 c1-21 c1-22 c1-b c1-c c1-d c1-e c1-f c1-g"
+          >
+            <path
+              d="M5.181 4h13.634C19.468 4 20 4.518 20 5.153v13.692c0 .638-.532 1.155-1.184 1.155H5.181C4.53 20 4 19.483 4 18.845V5.153c0-.636.53-1.152 1.181-1.152zm3.754 3.574a1.376 1.376 0 00-2.752 0A1.38 1.38 0 007.56 8.95c.758 0 1.375-.618 1.375-1.376zM8.75 9.998H6.372v7.635H8.75V9.999zm1.485 0h.003v7.633h2.371v-3.777c0-.995.19-1.96 1.425-1.96 1.217 0 1.233 1.14 1.233 2.025v3.714h2.372v-4.188c0-2.056-.444-3.637-2.847-3.637-1.159 0-1.933.633-2.25 1.233h-.031V9.999h-2.273v-.002l-.003.002z"
+            ></path>
+          </svg>
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="40px"
+            height="40px"
+            data-ux="IconSocial"
+            class="x-el x-el-svg c1-1 c1-2 c1-gv c1-1v c1-2h c1-1x c1-1y c1-1z c1-20 c1-21 c1-22 c1-b c1-c c1-d c1-e c1-f c1-g"
+          >
+            <path
+              d="M9.988 14.158c-.037.01-3.983 1.134-4.224 1.134-.554-.029-.674-.515-.726-.99a6.35 6.35 0 0 1 .011-1.487c.07-.596.201-1.431.883-1.396.175 0 2.447.822 4.11 1.41.624.215.679 1.136-.054 1.33zm2.112-3.616c.065 1.213-.93 1.54-1.722.454L6.501 5.663c-.055-.21.011-.394.193-.553.57-.523 3.626-1.263 4.432-1.082.273.06.441.194.503.4.048.263.42 5.314.47 6.114zm-.051 5.232c0 .146.007 3.696-.062 3.857-.084.19-.256.308-.522.356-.368.054-.988-.06-1.86-.34-.803-.257-2.068-.682-1.798-1.349.102-.219 1.874-1.994 2.82-2.971.437-.483 1.45-.175 1.422.447zm6.572-3.74c-.204.118-4.041.896-4.307.972l.01-.02c-.66.15-1.29-.586-.85-1.098.136-.117 2.404-2.933 2.656-3.08.19-.113.412-.12.667-.018.671.28 2.01 2.003 2.094 2.686-.004.092.044.371-.27.558zm.368 4.15c-.098.654-1.623 2.33-2.327 2.571-.251.083-.47.064-.645-.063-.183-.111-2.254-3.083-2.367-3.248-.398-.514.248-1.263.933-1.054 0 0 4.03 1.133 4.184 1.25.19.131.262.312.222.544z"
+            ></path>
+          </svg>
+        </div>
+      </section>
+      <!-- Contacts Section -->
+      <section
+        class="bg-brand-light py-13 px-4 text-brand-dark text-center"
+        id="contacts"
+      >
+        <h2 class="text-2xl md:text-3xl text-brand-primary">Get in Touch</h2>
+        <div class="flex flex-col mt-4 md:flex-row justify-center">
+          <div
+            class="flex flex-col bg-brand-dark text-brand-light gap-4 p-4 md:p-8 text-start rounded-t-lg md:rounded-tl-lg md: rounded-bl-lg md:rounded-t-none"
+          >
+            <h3 class="text-xl md:text-2xl">Contact Information</h3>
+            <div class="flex gap-2 items-center">
+              <svg
+                class="shrink-0"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.4125 11.4125C13.8042 11.0208 14 10.55 14 10C14 9.45 13.8042 8.97917 13.4125 8.5875C13.0208 8.19583 12.55 8 12 8C11.45 8 10.9792 8.19583 10.5875 8.5875C10.1958 8.97917 10 9.45 10 10C10 10.55 10.1958 11.0208 10.5875 11.4125C10.9792 11.8042 11.45 12 12 12C12.55 12 13.0208 11.8042 13.4125 11.4125ZM12 19.35C14.0333 17.4833 15.5417 15.7875 16.525 14.2625C17.5083 12.7375 18 11.3833 18 10.2C18 8.38333 17.4208 6.89583 16.2625 5.7375C15.1042 4.57917 13.6833 4 12 4C10.3167 4 8.89583 4.57917 7.7375 5.7375C6.57917 6.89583 6 8.38333 6 10.2C6 11.3833 6.49167 12.7375 7.475 14.2625C8.45833 15.7875 9.96667 17.4833 12 19.35ZM12 22C9.31667 19.7167 7.3125 17.5958 5.9875 15.6375C4.6625 13.6792 4 11.8667 4 10.2C4 7.7 4.80417 5.70833 6.4125 4.225C8.02083 2.74167 9.88333 2 12 2C14.1167 2 15.9792 2.74167 17.5875 4.225C19.1958 5.70833 20 7.7 20 10.2C20 11.8667 19.3375 13.6792 18.0125 15.6375C16.6875 17.5958 14.6833 19.7167 12 22Z"
+                  fill="#AB8585"
+                />
+              </svg>
+              <p>3190 HW-160, Suite F, Pahrump, Nevada 89048, United States</p>
+            </div>
+            <div class="flex gap-2 items-center">
+              <svg
+                width="24"
+                class="shrink-0"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.95 21C17.8667 21 15.8083 20.5458 13.775 19.6375C11.7417 18.7292 9.89167 17.4417 8.225 15.775C6.55833 14.1083 5.27083 12.2583 4.3625 10.225C3.45417 8.19167 3 6.13333 3 4.05C3 3.75 3.1 3.5 3.3 3.3C3.5 3.1 3.75 3 4.05 3H8.1C8.33333 3 8.54167 3.07917 8.725 3.2375C8.90833 3.39583 9.01667 3.58333 9.05 3.8L9.7 7.3C9.73333 7.56667 9.725 7.79167 9.675 7.975C9.625 8.15833 9.53333 8.31667 9.4 8.45L6.975 10.9C7.30833 11.5167 7.70417 12.1125 8.1625 12.6875C8.62083 13.2625 9.125 13.8167 9.675 14.35C10.1917 14.8667 10.7333 15.3458 11.3 15.7875C11.8667 16.2292 12.4667 16.6333 13.1 17L15.45 14.65C15.6 14.5 15.7958 14.3875 16.0375 14.3125C16.2792 14.2375 16.5167 14.2167 16.75 14.25L20.2 14.95C20.4333 15.0167 20.625 15.1375 20.775 15.3125C20.925 15.4875 21 15.6833 21 15.9V19.95C21 20.25 20.9 20.5 20.7 20.7C20.5 20.9 20.25 21 19.95 21ZM6.025 9L7.675 7.35L7.25 5H5.025C5.10833 5.68333 5.225 6.35833 5.375 7.025C5.525 7.69167 5.74167 8.35 6.025 9ZM14.975 17.95C15.625 18.2333 16.2875 18.4583 16.9625 18.625C17.6375 18.7917 18.3167 18.9 19 18.95V16.75L16.65 16.275L14.975 17.95Z"
+                  fill="#AB8585"
+                />
+              </svg>
+
+              <p>(206) 919-6886</p>
+            </div>
+            <div class="flex gap-2 items-center">
+              <svg
+                width="24"
+                height="24"
+                class="shrink-0"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.55 16.55L11 13V8H13V12.175L15.95 15.125L14.55 16.55ZM11 6V4H13V6H11ZM18 13V11H20V13H18ZM11 20V18H13V20H11ZM4 13V11H6V13H4ZM12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.3833 2 14.6833 2.2625 15.9 2.7875C17.1167 3.3125 18.175 4.025 19.075 4.925C19.975 5.825 20.6875 6.88333 21.2125 8.1C21.7375 9.31667 22 10.6167 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22ZM12 20C14.2333 20 16.125 19.225 17.675 17.675C19.225 16.125 20 14.2333 20 12C20 9.76667 19.225 7.875 17.675 6.325C16.125 4.775 14.2333 4 12 4C9.76667 4 7.875 4.775 6.325 6.325C4.775 7.875 4 9.76667 4 12C4 14.2333 4.775 16.125 6.325 17.675C7.875 19.225 9.76667 20 12 20Z"
+                  fill="#AB8585"
+                />
+              </svg>
+
+              <p>
+                <span class="block text-sm">Open daily</span>8:00 am - 7:00 pm
+              </p>
+            </div>
+            <p class="text-xs text-brand-sub">
+              Appointments outside office hours available upon request. Just
+              call!
+            </p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.272515167519!2d-115.95782812362192!3d36.18425370217705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c639a25ba6af0f%3A0x5c7351dde0fbb39a!2sMarci%20Metzger%20-%20THE%20RIDGE%20REALTY%20GROUP%20-%20B1002787!5e0!3m2!1sen!2sph!4v1788950956682!5m2!1sen!2sph"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              class="flex-1"
+            ></iframe>
+          </div>
+          <form
+            action=""
+            class="grid lg:grid-cols-2 bg-white drop-shadow-2xl gap-4 p-4 md:p-8 text-start rounded-b-lg md:rounded-br-lg md:rounded-tr-lg md:rounded-b-none"
+          >
+            <div class="lg:col-span-2">
+              <label for="name" class="font-serif font-medium">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                class="w-full py-1 px-2 rounded-lg border-brand-border focus:ring-brand-primary focus:border-brand-primary text-sm"
+              />
+            </div>
+            <div>
+              <label for="email" class="font-serif font-medium">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com"
+                class="w-full py-1 px-2 rounded-lg border-brand-border focus:ring-brand-primary focus:border-brand-primary text-sm"
+              />
+            </div>
+            <div>
+              <label for="contact-number" class="font-serif font-medium"
+                >Contact Number</label
+              >
+              <input
+                type="text"
+                id="contact-number"
+                name="contact-number"
+                placeholder="(206) 000-0000"
+                class="w-full py-1 px-2 rounded-lg border-brand-border focus:ring-brand-primary focus:border-brand-primary text-sm"
+              />
+            </div>
+            <div class="lg:col-span-2">
+              <label for="help" class="font-serif font-medium"
+                >How Can We Help?</label
+              >
+              <select
+                name="help"
+                id="help"
+                class="rounded-lg border-brand-border text-sm py-1 px-2 w-full focus:ring-brand-primary focus:border-brand-primary"
+              >
+                <option value="home">I'm looking for a home</option>
+                <option value="property">I'm looking for a property</option>
+                <option value="job">I'm looking for a job</option>
+                <option value="business">I'm looking for a business</option>
+                <option value="car">I'm looking for a car</option>
+                <option value="place">I'm looking for a place to stay</option>
+                <option value="">Other</option>
+              </select>
+            </div>
+            <div class="lg:col-span-2">
+              <label for="message" class="font-serif font-medium"
+                >Message</label
+              >
+              <textarea
+                name="message"
+                id="message"
+                class="w-full min-h-20 py-1 px-2 rounded-lg border-brand-border focus:ring-brand-primary focus:border-brand-primary text-sm field-sizing-content resize-none"
+                placeholder="Tell us about your propery goals..."
+              ></textarea>
+            </div>
+            <input
+              type="submit"
+              value="Send"
+              class="bg-brand-dark py-3 text-brand-light font-serif rounded-lg lg:col-span-2"
+            />
+          </form>
+        </div>
+      </section>
       <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     </main>
+    <footer
+      class="bg-brand-dark text-brand-sub py-13 px-4 text-center font-serif text-xs"
+    >
+      Copyright © 2026 Marci METZGER - All Rights Reserved
+      <svg
+        width="119"
+        height="1"
+        viewBox="0 0 119 1"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="mx-auto mt-4"
+      >
+        <line y1="0.5" x2="118.017" y2="0.5" stroke="white" />
+      </svg>
+    </footer>
   </body>
 </html>
