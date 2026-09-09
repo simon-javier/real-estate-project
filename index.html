@@ -1,12 +1,373 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./output.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.2/dist/cdn.min.js"
+    ></script>
   </head>
-  <body>
-    <p class="text-xl">Hello, world!</p>
+  <body class="bg-brand-dark text-white">
+    <header class="absolute w-full top-0 left-0">
+      <nav class="max-w-300 mx-auto flex items-center py-3 px-4">
+        <button
+          class="flex items-center gap-2.5 cursor-pointer w-6 md:w-auto text-brand-dark text-2xl"
+        >
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 16H28M4 8H28M4 24H28"
+              stroke="#161616"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <p class="font-serif hidden md:block">Menu</p>
+        </button>
+        <img src="./img/logo.webp" class="w-50 md:w-85 mx-auto" alt="" />
+        <a href="#contacts" class="md:flex items-center gap-0.5 hidden">
+          <p class="py-2 px-4 rounded-lg bg-brand-dark">Contact Us</p>
+          <p
+            class="h-10 flex justify-center items-center rounded-lg bg-brand-dark"
+          >
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 31 31"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.625 23.25L19.375 15.5L11.625 7.75"
+                stroke="#F7F1EA"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </p>
+        </a>
+      </nav>
+    </header>
+    <main class="flex-1 flex flex-col">
+      <!-- Hero Section -->
+      <section
+        class="px-4 pt-24 max-w-300 flex-1 mx-auto min-h-svh flex flex-col items-center justify-center gap-9"
+      >
+        <div class="flex flex-col items-center justify-center gap-6">
+          <div>
+            <img
+              src="./img/hero-img.webp"
+              class="top-0 left-0 fixed w-full h-full object-cover object-[50%_20%] -z-100"
+              alt=""
+            />
+            <div
+              class="-z-99 fixed top-0 left-0 w-full h-full bg-linear-to-b from-[#FFFFFF] from-0% via-[#88460C] via-31% to-[#000000] to-67% opacity-44"
+            ></div>
+          </div>
+          <h1
+            class="text-3xl sm:text-6xl md:text-7xl lg:text-8xl text-center leading-none"
+          >
+            Don't just list it.
+            <span class="block text-brand-secondary">Get it sold.</span>
+          </h1>
+          <p class="sm:text-2xl max-w-204 text-center text-pretty">
+            Nearly three decades of proven expertise guiding buyers and sellers
+            across the Pahrump Valley to top-dollar results.
+          </p>
+        </div>
+        <a
+          href="#listings"
+          class="font-serif bg-brand-light text-black md:text-2xl px-4 py-2 md:py-4 md:px-8 rounded-lg"
+          >Find your Home</a
+        >
+      </section>
+      <!-- Credibility Section -->
+      <section class="bg-brand-light text-brand-dark py-13">
+        <div
+          class="flex flex-col lg:flex-row max-w-300 mx-auto items-center justify-center text-center"
+        >
+          <p
+            class="font-serif text-brand-primary flex-1 py-4 border-y w-full lg:border-y-0 lg:border-x border-[#DFDFCB]"
+          >
+            <span class="block font-bold text-4xl lg:text-5xl text-brand-dark"
+              >30</span
+            >Years in Real Estate
+          </p>
+          <p
+            class="font-serif text-brand-primary flex-1 py-4 border-y w-full lg:border-y-0 lg:border-x border-[#DFDFCB]"
+          >
+            <span class="block font-bold text-4xl lg:text-5xl text-brand-dark"
+              >$28.5M</span
+            >Closed Volume
+          </p>
+          <p
+            class="font-serif text-brand-primary flex-1 py-4 border-y w-full lg:border-y-0 lg:border-x border-[#DFDFCB]"
+          >
+            <span class="block font-bold text-4xl lg:text-5xl text-brand-dark"
+              >90+</span
+            >Families Helped in a Single Year
+          </p>
+          <p
+            class="font-serif text-brand-primary flex-1 py-4 border-y w-full lg:border-y-0 lg:border-x border-[#DFDFCB]"
+          >
+            <span class="block font-bold text-4xl lg:text-5xl text-brand-dark"
+              >#1</span
+            >Top Residential Sales
+          </p>
+        </div>
+      </section>
+      <!-- Marci Section -->
+      <section class="bg-brand-dark py-13 px-4">
+        <div
+          class="flex flex-col items-center md:flex-row gap-4 md:gap-16 lg:gap-20 max-w-300 mx-auto"
+        >
+          <div class="flex flex-col gap-4 flex-1">
+            <div>
+              <h3 class="text-sm md:text-base text-brand-primary">
+                Realtor for nearly 30 years
+              </h3>
+              <h2 class="text-2xl md:text-3xl lg:text-4xl">
+                Meet Marci Metzger
+              </h2>
+            </div>
+            <p>
+              Marci was a REALTOR, then licensed Broker, in Washington State.
+              Now, she is enjoying the sunshine, and helping clients in Southern
+              Nevada. Having helped buyers and sellers in many markets since
+              1995, she is a wealth of knowledge.
+            </p>
+            <p>
+              In her words, "I love that small-town feeling that our community
+              offers. Spectacular golf courses, parks, pool, and easy access to
+              Las Vegas make Pahrump a great place to call home. Working or
+              retired, fast-paced or looking to relax... there's a place for you
+              here! I enjoy living in the Mountain Falls community and will
+              strive to find you a home that will suit you just as this
+              community does me."
+            </p>
+          </div>
+          <div class="flex-1">
+            <img
+              src="./img/marci.png"
+              class="aspect-square object-cover md:w-[75%]"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Listings Section -->
+      <section id="listings" class="flex flex-col relative w-full">
+        <div
+          class="relative w-full min-h-50 pb-40 flex flex-col items-center pt-13 lg:pt-25"
+        >
+          <div
+            class="absolute inset-0 z-0 bg-linear-to-b from-[#000000] from-15% to-[#D48934] to-85% opacity-44"
+          ></div>
+          <img
+            src="./img/listings-bg.webp"
+            class="absolute inset-0 z-[-1] w-full h-full object-cover object-[50%_20%]"
+            alt=""
+          />
+
+          <h2 class="text-2xl md:text-4xl text-center text-white relative z-10">
+            Find Your Dream Home
+          </h2>
+        </div>
+
+        <div class="bg-brand-dark flex-1 px-4 md:px-0 pb-20">
+          <div
+            class="relative z-10 -mt-24 md:-mt-32 mx-auto w-full md:w-10/12 max-w-300 bg-brand-light text-brand-dark p-4 md:p-13 shadow-xl rounded-sm"
+          >
+            <h3 class="text-brand-primary text-xl md:text-3xl">
+              Search Listings
+            </h3>
+
+            <form action="" class="flex flex-col mt-4">
+              <div
+                class="flex-col flex gap-3 md:flex-row md:flex-wrap p-2 md:p-5"
+              >
+                <div class="flex-col flex basis-full lg:flex-1">
+                  <label for="location" class="font-serif font-medium"
+                    >Location</label
+                  >
+                  <select
+                    name="location"
+                    id="location"
+                    class="rounded-lg border-brand-border py-1 px-2 focus:ring-brand-primary focus:border-brand-primary bg-brand-light"
+                  >
+                    <option value="">Any</option>
+                    <option value="433">Alamo</option>
+                    <option value="934">Alton</option>
+                    <option value="1026">Amargosa Valley</option>
+                    <option value="3118">Beatty</option>
+                    <option value="3829">Beryl</option>
+                    <option value="4546">Blue Diamond</option>
+                    <option value="5088">Boulder City</option>
+                    <option value="5521">Brian Head</option>
+                    <option value="6719">Cal Nev Ari</option>
+                    <option value="6775">Caliente</option>
+                    <option value="9571">Cold Creek</option>
+                    <option value="11053">Crystal</option>
+                    <option value="12869">Duck Creek Village</option>
+                    <option value="13129">Dyer</option>
+                    <option value="14307">Elko</option>
+                    <option value="14562">Ely</option>
+                    <option value="18363">Goldfield</option>
+                    <option value="18449">Goodsprings</option>
+                    <option value="20411">Hatch</option>
+                    <option value="20821">Henderson</option>
+                    <option value="22539">Indian Springs</option>
+                    <option value="23194">Jean</option>
+                    <option value="25650">Las Vegas</option>
+                    <option value="25702">Laughlin</option>
+                    <option value="26990">Logandale</option>
+                    <option value="28159">Manhattan</option>
+                    <option value="29175">Mc Gill</option>
+                    <option value="29860">Mesquite</option>
+                    <option value="30650">Moapa</option>
+                    <option value="31435">Mount Charleston</option>
+                    <option value="31686">Mountain Springs</option>
+                    <option value="33400">North Las Vegas</option>
+                    <option value="0">Other</option>
+                    <option value="34981">Overton</option>
+                    <option value="35146">Pahrump</option>
+                    <option value="55114">Palm Gardens</option>
+                    <option value="35305">Panaca</option>
+                    <option value="35603">Parowan</option>
+                    <option value="36767">Pioche</option>
+                    <option value="40340">Round Mountain</option>
+                    <option value="41421">Sandy Valley</option>
+                    <option value="41950">Searchlight</option>
+                    <option value="46640">Tonopah</option>
+                  </select>
+                </div>
+                <div class="flex-col flex flex-1">
+                  <label for="type" class="font-serif font-medium">Type</label>
+                  <select
+                    name="type"
+                    id="type"
+                    class="rounded-lg border-brand-border py-1 px-2 focus:ring-brand-primary focus:border-brand-primary bg-brand-light"
+                  >
+                    <option value="">Any</option>
+                    <option value="7">Land</option>
+                    <option value="11">Residential Lease</option>
+                    <option value="6">High Rise</option>
+                    <option value="1">Residential</option>
+                  </select>
+                </div>
+                <div class="flex-col flex flex-1">
+                  <label for="sort-by" class="font-serif font-medium"
+                    >Sort By</label
+                  >
+                  <select
+                    name="sort-by"
+                    id="sort-by"
+                    class="rounded-lg border-brand-border py-1 px-2 focus:ring-brand-primary focus:border-brand-primary bg-brand-light"
+                  >
+                    <option disabled="" hidden="" value=""></option>
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="pra">Least Expensive to Most</option>
+                    <option value="prd">Most Expensive to Least</option>
+                    <option value="bda">Bedrooms (Low to High)</option>
+                    <option value="bdd">Bedrooms (High to Low)</option>
+                    <option value="tba">Bathrooms (Low to High)</option>
+                    <option value="tbd">Bathrooms (High to Low)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div
+                class="flex-col flex gap-3 md:grid grid-cols-2 lg:grid-cols-4 p-2 md:p-5"
+              >
+                <div class="flex-col flex">
+                  <label for="bedrooms" class="font-serif font-medium"
+                    >Bedrooms</label
+                  >
+                  <select
+                    name="bedrooms"
+                    id="bedrooms"
+                    class="rounded-lg border-brand-border py-1 px-2 focus:ring-brand-primary focus:border-brand-primary bg-brand-light"
+                  >
+                    <option value="">Any Number</option>
+                    <option value="0">Studio</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                    <option value="5">5+</option>
+                    <option value="6">6+</option>
+                  </select>
+                </div>
+                <div class="flex-col flex">
+                  <label for="baths" class="font-serif font-medium"
+                    >Baths</label
+                  >
+                  <select
+                    name="baths"
+                    id="baths"
+                    class="rounded-lg border-brand-border py-1 px-2 focus:ring-brand-primary focus:border-brand-primary bg-brand-light"
+                  >
+                    <option value="">Any Number</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                    <option value="5">5+</option>
+                    <option value="6">6+</option>
+                  </select>
+                </div>
+                <div class="flex-col flex">
+                  <label for="min-price" class="font-serif font-medium"
+                    >Min Price</label
+                  >
+                  <input
+                    x-data
+                    type="text"
+                    inputmode="numeric"
+                    @input="$el.value = $el.value.replace(/[^0-9]/g, '')"
+                    name="min-price"
+                    id="min-price"
+                    class="rounded-lg border-brand-border py-1 px-2 focus:ring-brand-primary focus:border-brand-primary bg-brand-light"
+                  />
+                </div>
+                <div class="flex-col flex">
+                  <label for="max-price" class="font-serif font-medium"
+                    >Max Price</label
+                  >
+                  <input
+                    x-data
+                    type="text"
+                    inputmode="numeric"
+                    @input="$el.value = $el.value.replace(/[^0-9]/g, '')"
+                    name="max-price"
+                    id="max-price"
+                    class="rounded-lg border-brand-border py-1 px-2 focus:ring-brand-primary focus:border-brand-primary bg-brand-light"
+                  />
+                </div>
+              </div>
+
+              <input
+                type="submit"
+                name="submit"
+                value="Search Now"
+                class="bg-brand-dark py-3 text-brand-light hover:bg-black transition-colors font-serif rounded-lg mx-2 mt-4 cursor-pointer"
+              />
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

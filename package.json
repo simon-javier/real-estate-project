@@ -5,6 +5,11 @@
   },
   "scripts": {
     "build": "tailwindcss -i input.css -o output.css --watch",
-    "start": "browser-sync start --server --files '*.css *.html' --watch"
+    "start": "browser-sync start --server --files '*.css *.html' --watch",
+    "dev": "concurrently \"npm run build\" \"npm run start\""
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.11",
+    "concurrently": "^10.0.5"
   }
 }
