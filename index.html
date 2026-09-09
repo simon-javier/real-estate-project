@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.2/dist/cdn.min.js"
@@ -368,6 +372,157 @@
           </div>
         </div>
       </section>
+      <!-- Affiliations Section -->
+      <section class="bg-brand-light py-13">
+        <div
+          class="flex max-w-300 px-4 mx-auto items-center justify-evenly flex-wrap"
+        >
+          <img src="./img/logo-1.webp" alt="" class="p-2" />
+          <img src="./img/logo-2.webp" alt="" class="p-2" />
+          <img src="./img/logo-3.png" alt="" class="p-2" />
+          <img src="./img/logo-4.png" alt="" class="p-2" />
+        </div>
+      </section>
+      <!-- Gallery Section -->
+      <section class="bg-brand-dark py-13 px-4">
+        <div
+          class="flex flex-col max-w-300 mx-auto gap-4"
+          x-data="{
+            activeTab: 'exterior',
+            displayCategory: 'exterior',
+            isUpdating: false,
+            swiper: null,
+            images: [],
+            get filteredImages() {
+              return this.images.filter(i => i.category === this.displayCategory);
+            },
+            initSwiper() {
+              this.swiper = new Swiper(this.$refs.container, {
+                slidesPerView: 1.4,
+                spaceBetween: 16,
+                grabCursor: true,
+                centeredSlides: true,
+                loop: this.filteredImages.length > 3,
+                observer: true,
+                observeParents: true,
+              });
+            },
+
+            async init() {
+              try {
+                const response = await fetch('./images.json');
+                this.images = await response.json();
+              } catch (error) {
+                console.error('Error loading gallery images:', error);
+              }
+
+              this.$nextTick(() => {
+                this.initSwiper();
+              });
+            },
+
+            changeCategory(tab) {
+              if (this.activeTab === tab) return;
+
+              this.activeTab = tab;
+              this.isUpdating = true;
+
+              setTimeout(() => {
+                this.displayCategory = tab;
+
+                this.$nextTick(() => {
+                  if (this.swiper) {
+                    this.swiper.destroy(true, true);
+                  }
+                  this.initSwiper();
+
+                  this.isUpdating = false;
+                });
+              }, 150);
+            }
+          }"
+        >
+          <div class="flex flex-col md:flex-row md:justify-between gap-4">
+            <div class="">
+              <h3 class="text-sm md:text-base text-brand-primary">
+                Curated Portfolio
+              </h3>
+              <h2 class="text-2xl mt-2 md:text-3xl">
+                Featured Properties & Interiors
+              </h2>
+              <p>
+                A showcase of premier estates, neighborhood homes, and luxury
+                spaces across Pahrump.
+              </p>
+            </div>
+
+            <!-- Dynamic Filter Controls -->
+            <div
+              class="flex bg-[#242424] rounded-lg justify-center p-2 items-center text-brand-sub text-nowrap gap-2 self-center md:self-end"
+            >
+              <button
+                @click="changeCategory('exterior')"
+                :class="activeTab === 'exterior' ? 'bg-brand-dark-accent text-white' : ''"
+                type="button"
+                class="rounded-sm py-1 px-2 cursor-pointer transition-colors"
+              >
+                Exterior
+              </button>
+              <button
+                @click="changeCategory('living spaces')"
+                :class="activeTab === 'living spaces' ? 'bg-brand-dark-accent text-white' : ''"
+                type="button"
+                class="rounded-sm py-1 px-2 cursor-pointer transition-colors"
+              >
+                Living Spaces
+              </button>
+              <button
+                @click="changeCategory('sold')"
+                :class="activeTab === 'sold' ? 'bg-brand-dark-accent text-white' : ''"
+                type="button"
+                class="rounded-sm py-1 px-2 cursor-pointer transition-colors"
+              >
+                Sold
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile View -->
+          <div
+            class="swiper w-full md:hidden! transition-opacity duration-150 ease-in-out min-h-62.5"
+            :class="isUpdating ? 'opacity-0' : 'opacity-100'"
+            x-ref="container"
+          >
+            <div class="swiper-wrapper">
+              <template x-for="item in filteredImages" :key="item.id">
+                <div class="swiper-slide">
+                  <img
+                    :src="item.src"
+                    alt=""
+                    class="w-full h-auto aspect-4/3 object-cover border-2 border-brand-light"
+                  />
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <!-- Desktop View -->
+          <div
+            class="grid-cols-3 gap-4 hidden md:grid transition-opacity duration-150 ease-in-out min-h-75 lg:min-h-100"
+            :class="isUpdating ? 'opacity-0' : 'opacity-100'"
+          >
+            <template x-for="item in filteredImages" :key="item.id">
+              <img
+                :src="item.src"
+                alt=""
+                class="w-full h-full aspect-4/3 border-2 border-brand-light object-cover"
+              />
+            </template>
+          </div>
+        </div>
+      </section>
+      <!-- Services Section -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     </main>
   </body>
 </html>

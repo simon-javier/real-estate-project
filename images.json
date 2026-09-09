@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "category": "exterior",
+    "src": "./img/exterior-1.webp"
+  },
+  {
+    "id": 2,
+    "category": "exterior",
+    "src": "./img/exterior-2.webp"
+  },
+  {
+    "id": 3,
+    "category": "exterior",
+    "src": "./img/exterior-3.webp"
+  },
+  {
+    "id": 4,
+    "category": "exterior",
+    "src": "./img/exterior-4.webp"
+  },
+  {
+    "id": 5,
+    "category": "exterior",
+    "src": "./img/exterior-5.webp"
+  },
+  {
+    "id": 6,
+    "category": "exterior",
+    "src": "./img/exterior-6.webp"
+  },
+  {
+    "id": 7,
+    "category": "living spaces",
+    "src": "./img/interior-1.webp"
+  },
+  {
+    "id": 8,
+    "category": "living spaces",
+    "src": "./img/interior-2.webp"
+  },
+  {
+    "id": 9,
+    "category": "living spaces",
+    "src": "./img/interior-3.webp"
+  },
+  {
+    "id": 10,
+    "category": "living spaces",
+    "src": "./img/interior-4.webp"
+  },
+  {
+    "id": 11,
+    "category": "living spaces",
+    "src": "./img/interior-5.webp"
+  },
+  {
+    "id": 12,
+    "category": "living spaces",
+    "src": "./img/interior-6.webp"
+  },
+  {
+    "id": 13,
+    "category": "sold",
+    "src": "./img/sold-1.webp"
+  },
+  {
+    "id": 14,
+    "category": "sold",
+    "src": "./img/sold-2.webp"
+  },
+  {
+    "id": 15,
+    "category": "sold",
+    "src": "./img/sold-3.webp"
+  },
+  {
+    "id": 16,
+    "category": "sold",
+    "src": "./img/sold-4.webp"
+  },
+  {
+    "id": 17,
+    "category": "sold",
+    "src": "./img/sold-5.webp"
+  },
+  {
+    "id": 18,
+    "category": "sold",
+    "src": "./img/sold-6.webp"
+  }
+]
