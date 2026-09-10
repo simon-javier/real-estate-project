@@ -19,7 +19,7 @@
       <nav class="max-w-300 mx-auto flex items-center py-3 px-4">
         <button
           @click="sidebarOpen = true"
-          class="flex items-center gap-2.5 cursor-pointer w-6 md:w-auto text-brand-dark text-2xl"
+          class="flex items-center gap-2.5 cursor-pointer w-6 md:w-auto text-brand-dark text-2xl hover:text-brand-dark/90"
         >
           <svg
             width="32"
@@ -30,7 +30,7 @@
           >
             <path
               d="M4 16H28M4 8H28M4 24H28"
-              stroke="#161616"
+              stroke="currentColor"
               stroke-width="3"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -40,11 +40,13 @@
         </button>
         <img src="./img/logo.webp" class="w-50 md:w-85 mx-auto" alt="" />
         <a href="#contacts" class="md:flex items-center gap-0.5 hidden group">
-          <p class="py-2 px-4 rounded-lg font-serif bg-brand-dark">
+          <p
+            class="py-2 px-4 rounded-lg font-serif bg-brand-dark group-hover:bg-brand-dark/90"
+          >
             Contact Us
           </p>
           <p
-            class="h-10 flex justify-center items-center rounded-lg bg-brand-dark group-hover:translate-x-2 transition-transform duration-300 ease-in-out"
+            class="h-10 flex justify-center items-center rounded-lg bg-brand-dark group-hover:translate-x-2 transition-transform duration-300 ease-in-out group-hover:bg-brand-dark/90"
           >
             <svg
               width="28"
@@ -55,7 +57,7 @@
             >
               <path
                 d="M11.625 23.25L19.375 15.5L11.625 7.75"
-                stroke="#F7F1EA"
+                stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -171,7 +173,7 @@
         </div>
         <a
           href="#listings"
-          class="font-serif bg-brand-light text-black md:text-2xl px-4 py-2 md:py-4 md:px-8 rounded-lg"
+          class="font-serif bg-brand-light text-black md:text-2xl px-4 py-2 md:py-4 md:px-8 rounded-lg hover:bg-brand-light/90"
           >Find your Home</a
         >
       </section>
@@ -446,7 +448,7 @@
                 type="submit"
                 name="submit"
                 value="Search Now"
-                class="bg-brand-dark py-3 text-brand-light hover:bg-black transition-colors font-serif rounded-lg mx-2 mt-4 cursor-pointer"
+                class="bg-brand-dark py-3 text-brand-light hover:bg-brand-dark/90 transition-colors font-serif rounded-lg mx-2 mt-4 cursor-pointer"
               />
             </form>
           </div>
@@ -544,7 +546,7 @@
                 @click="changeCategory('exterior')"
                 :class="activeTab === 'exterior' ? 'bg-brand-dark-accent text-white' : ''"
                 type="button"
-                class="rounded-sm py-1 px-2 cursor-pointer transition-colors"
+                class="rounded-sm py-1 px-2 cursor-pointer transition-colors hover:bg-brand-dark-accent"
               >
                 Exterior
               </button>
@@ -552,7 +554,7 @@
                 @click="changeCategory('living spaces')"
                 :class="activeTab === 'living spaces' ? 'bg-brand-dark-accent text-white' : ''"
                 type="button"
-                class="rounded-sm py-1 px-2 cursor-pointer transition-colors"
+                class="rounded-sm py-1 px-2 cursor-pointer transition-colors hover:bg-brand-dark-accent"
               >
                 Living Spaces
               </button>
@@ -560,7 +562,7 @@
                 @click="changeCategory('sold')"
                 :class="activeTab === 'sold' ? 'bg-brand-dark-accent text-white' : ''"
                 type="button"
-                class="rounded-sm py-1 px-2 cursor-pointer transition-colors"
+                class="rounded-sm py-1 px-2 cursor-pointer transition-colors hover:bg-brand-dark-accent"
               >
                 Sold
               </button>
@@ -592,11 +594,13 @@
             :class="isUpdating ? 'opacity-0' : 'opacity-100'"
           >
             <template x-for="item in filteredImages" :key="item.id">
-              <img
-                :src="item.src"
-                alt=""
-                class="w-full h-full aspect-4/3 border-2 border-brand-light object-cover"
-              />
+              <div class="overflow-hidden border-2 border-brand-light">
+                <img
+                  :src="item.src"
+                  alt=""
+                  class="w-full h-full aspect-4/3 object-cover hover:scale-110 transition-transform duration-500 ease-in-out"
+                />
+              </div>
             </template>
           </div>
         </div>
@@ -862,7 +866,7 @@
             <input
               type="submit"
               value="Send"
-              class="bg-brand-dark py-3 text-brand-light font-serif rounded-lg lg:col-span-2 cursor-pointer"
+              class="bg-brand-dark hover:bg-brand-dark/90 py-3 text-brand-light font-serif rounded-lg lg:col-span-2 cursor-pointer"
             />
           </form>
         </div>
